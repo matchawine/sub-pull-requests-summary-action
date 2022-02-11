@@ -1,16 +1,25 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
+import * as core from "@actions/core"
+import { executeRequest } from "./getRequest"
+import { transform } from "./transform"
+import { getMD } from "./md"
+import { updatePR } from "./updatePR"
+import github from "@actions/github"
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    const token: string = core.getInput("GITHUB_TOKEN")
+    const prId: string = github.context.payload.pull_request?.node_id
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    if (!prId)
+      throw new Error(
+        "No pull request id found. Are you in a pull request workflow?",
+      )
 
-    core.setOutput('time', new Date().toTimeString())
+    const res = await executeRequest({ token, prId })
+    const v = transform(res)
+    const md = getMD(v)
+    console.log("Udpate PR", md)
+    updatePR({ token, prId, body: md })
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }

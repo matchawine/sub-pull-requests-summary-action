@@ -1,0 +1,682 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ship description MD 1`] = `
+"- #1758
+- #1762
+- #1781
+- #1785
+- #1788"
+`;
+
+exports[`Ship description Response 1`] = `
+Object {
+  "node": Object {
+    "commits": Object {
+      "nodes": Array [
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "f39153f",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "use p-tools instead of bluebird",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "54ff49d",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "use babel config jest",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "d367c5d",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xr-Tu",
+                  "number": 1762,
+                  "state": "MERGED",
+                  "title": "[Refactor] getClientRawSectionsByName",
+                },
+              ],
+            },
+            "message": "refactor getClientRawSectionsByName",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "b620cd4",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "update babel libs",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "8d75740",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "update webpack",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "4d9320e",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "remove p tool in mocks",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "b98caa9",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/removeBluebird' into topic/updateWebpackBabel",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "6c1d2d4",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "Merge branch 'develop' into topic/removeBluebird",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "da8f853",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "swap reject/resolve withMinimumDelayPromise",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "7bdd053",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/removeBluebird' into topic/updateWebpackBabel",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "bb20f7d",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "import mock dynamically",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "816337f",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "use babel config js and exclude node module from this config",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "f4d803d",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "transpile p-tools",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "2f66bbd",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/removeBluebird' into topic/updateWebpackBabel
+
+# Conflicts:
+#	babel.config.json",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "a8e0a6f",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "babel config js",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "21de922",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "rollback babel eslint v, add eslint disable let, resolve sonar",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "82909dd",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "Merge branch 'develop' into topic/removeBluebird",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "c819ab3",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "correct node-modules typo since 2019 ! rn/comment/",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "c8f6db6",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/removeBluebird' into topic/updateWebpackBabel
+
+# Conflicts:
+#	babel.config.js
+#	package-lock.json",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "44fb5fc",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xr-Tu",
+                  "number": 1762,
+                  "state": "MERGED",
+                  "title": "[Refactor] getClientRawSectionsByName",
+                },
+              ],
+            },
+            "message": "Merge branch 'develop' into topic/refactorGetClientRawSections",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "aa3e684",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "rm test-server command",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "c62c7b1",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xr-Tu",
+                  "number": 1762,
+                  "state": "MERGED",
+                  "title": "[Refactor] getClientRawSectionsByName",
+                },
+              ],
+            },
+            "message": "renaming",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "0e1fff3",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yCcI5",
+                  "number": 1781,
+                  "state": "MERGED",
+                  "title": "[Client][Vinify] legalMentions",
+                },
+              ],
+            },
+            "message": "vinify legalMentions",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "d53b9f3",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yCcI5",
+                  "number": 1781,
+                  "state": "MERGED",
+                  "title": "[Client][Vinify] legalMentions",
+                },
+              ],
+            },
+            "message": "apply review",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "09dd5e9",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xr-Tu",
+                  "number": 1762,
+                  "state": "MERGED",
+                  "title": "[Refactor] getClientRawSectionsByName",
+                },
+              ],
+            },
+            "message": "Merge pull request #1762 from matchawine/topic/refactorGetClientRawSections
+
+[Refactor] getClientRawSectionsByName",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "2398076",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yCcI5",
+                  "number": 1781,
+                  "state": "MERGED",
+                  "title": "[Client][Vinify] legalMentions",
+                },
+              ],
+            },
+            "message": "Merge pull request #1781 from matchawine/topic/vinifyLegalMention
+
+[Client][Vinify] legalMentions",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "1a7b696",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "transpiile node_module",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "95f3bc0",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yEzV3",
+                  "number": 1785,
+                  "state": "MERGED",
+                  "title": "[Client][Chateaunet] clean minimized colors",
+                },
+              ],
+            },
+            "message": "clean minimized colors",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "ca2b56b",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yFmMM",
+                  "number": 1788,
+                  "state": "MERGED",
+                  "title": "[Vinify] More flexibility for price, force 2 decimal",
+                },
+              ],
+            },
+            "message": "[Vinify] More flexibility for price, force 2 decimal",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "ec76b77",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yFmMM",
+                  "number": 1788,
+                  "state": "MERGED",
+                  "title": "[Vinify] More flexibility for price, force 2 decimal",
+                },
+              ],
+            },
+            "message": "Move from wine to bev",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "015b184",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yEzV3",
+                  "number": 1785,
+                  "state": "MERGED",
+                  "title": "[Client][Chateaunet] clean minimized colors",
+                },
+              ],
+            },
+            "message": "Merge pull request #1785 from matchawine/topic/chateaunetCleanMinimized
+
+[Client][Chateaunet] clean minimized colors",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "5f92a30",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4yFmMM",
+                  "number": 1788,
+                  "state": "MERGED",
+                  "title": "[Vinify] More flexibility for price, force 2 decimal",
+                },
+              ],
+            },
+            "message": "Merge pull request #1788 from matchawine/topic/vinifyCurrency",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "0c2cae0",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/removeBluebird' into topic/updateWebpackBabel
+
+# Conflicts:
+#	babel.config.js",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "5a00eee",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "topic/removeBluebird",
+                  "id": "PR_kwDOB09fAs4xsagy",
+                  "number": 1763,
+                  "state": "MERGED",
+                  "title": "Update Webpack and Babel",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/updateWebpackBabel' into topic/removeBluebird",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "8dd1349",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "baseRefName": "develop",
+                  "id": "PR_kwDOB09fAs4xkD2w",
+                  "number": 1758,
+                  "state": "MERGED",
+                  "title": "[Bundle] Remove bluebird",
+                },
+              ],
+            },
+            "message": "Merge branch 'topic/removeBluebird' into develop",
+          },
+        },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "0719203",
+            "associatedPullRequests": Object {
+              "nodes": Array [],
+            },
+            "message": "Merge remote-tracking branch 'origin/develop' into develop",
+          },
+        },
+      ],
+    },
+    "id": "PR_kwDOB09fAs4yDNKO",
+    "title": "Ship",
+  },
+}
+`;
+
+exports[`Ship description Transform 1`] = `
+Array [
+  Object {
+    "baseRefName": "develop",
+    "id": "PR_kwDOB09fAs4xkD2w",
+    "number": 1758,
+    "state": "MERGED",
+    "title": "[Bundle] Remove bluebird",
+  },
+  Object {
+    "baseRefName": "develop",
+    "id": "PR_kwDOB09fAs4xr-Tu",
+    "number": 1762,
+    "state": "MERGED",
+    "title": "[Refactor] getClientRawSectionsByName",
+  },
+  Object {
+    "baseRefName": "develop",
+    "id": "PR_kwDOB09fAs4yCcI5",
+    "number": 1781,
+    "state": "MERGED",
+    "title": "[Client][Vinify] legalMentions",
+  },
+  Object {
+    "baseRefName": "develop",
+    "id": "PR_kwDOB09fAs4yEzV3",
+    "number": 1785,
+    "state": "MERGED",
+    "title": "[Client][Chateaunet] clean minimized colors",
+  },
+  Object {
+    "baseRefName": "develop",
+    "id": "PR_kwDOB09fAs4yFmMM",
+    "number": 1788,
+    "state": "MERGED",
+    "title": "[Vinify] More flexibility for price, force 2 decimal",
+  },
+]
+`;
