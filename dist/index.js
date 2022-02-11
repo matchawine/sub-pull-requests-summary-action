@@ -97,22 +97,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const getRequest_1 = __nccwpck_require__(1754);
 const transform_1 = __nccwpck_require__(1644);
 const md_1 = __nccwpck_require__(9585);
 const updatePR_1 = __nccwpck_require__(2426);
-const github_1 = __importDefault(__nccwpck_require__(5438));
+const github = __importStar(__nccwpck_require__(5438));
 function run() {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const token = core.getInput("GITHUB_TOKEN");
-            const prId = (_a = github_1.default.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.node_id;
+            const prId = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.node_id;
             if (!prId)
                 throw new Error("No pull request id found. Are you in a pull request workflow?");
             const res = yield (0, getRequest_1.executeRequest)({ token, prId });
