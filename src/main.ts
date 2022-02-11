@@ -3,7 +3,7 @@ import { executeRequest } from "./getRequest"
 import { transform } from "./transform"
 import { getMD } from "./md"
 import { updatePR } from "./updatePR"
-import github from "@actions/github"
+import * as github from "@actions/github"
 
 async function run(): Promise<void> {
   try {
