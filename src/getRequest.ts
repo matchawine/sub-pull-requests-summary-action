@@ -33,6 +33,7 @@ const query = gql`
 
 const endpoint = "https://api.github.com/graphql"
 
+// @ts-ignore
 export const executeRequest = async ({ token, prId }) => {
   const variables = { prId }
   const graphQLClient = new GraphQLClient(endpoint, {

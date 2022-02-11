@@ -1,5 +1,6 @@
 import _ from "lodash"
 
+// @ts-ignore
 export const transform = githubResponse => {
   const pullRequest = githubResponse.node
   const commits = pullRequest.commits.nodes
