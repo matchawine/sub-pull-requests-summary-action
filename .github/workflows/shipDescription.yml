@@ -1,0 +1,20 @@
+name: Ship description
+
+on:
+  pull_request:
+
+jobs:
+  shipDescription:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+        # you must check out the repository
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: Hello world action step
+          uses: ./
+          id: hello
+          with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
