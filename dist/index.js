@@ -165,7 +165,8 @@ const transform = githubResponse => {
         .map("associatedPullRequests")
         .map("nodes")
         .flatten()
-        .filter({ baseRefName: "develop", state: "MERGED" })
+        .filter({ state: "MERGED" })
+        // .filter({ baseRefName: "develop", state: "MERGED" })
         .uniqBy("id")
         .value();
     return associatedPullRequests;
