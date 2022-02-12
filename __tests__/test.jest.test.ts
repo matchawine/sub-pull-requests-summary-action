@@ -4,7 +4,7 @@ import { transform } from "../src/transform"
 import { getMD } from "../src/md"
 
 const token = process.env.GITHUB_TOKEN
-const prId = "PR_kwDOB09fAs4yDNKO"
+const prId = "PR_kwDOGzILZc4yIyxe"
 
 describe("Ship description", () => {
   test("Response", async () => {
