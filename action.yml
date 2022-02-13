@@ -8,7 +8,7 @@ inputs:
   pull-request-description-template:
     description: "bouh"
     required: false
-    default: "- #{{ number }} @{{ author.login }}\n"
+    default: "- #{{ number }} @{{ author.login }}\\n"
   base-ref-name-filter:
     required: false
     description: 'Keep only the children pull requests targeting this branch name'
