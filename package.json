@@ -10,7 +10,9 @@
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
+    "allNoCheck": "npm run build && npm run format && npm run package",
+    "codegen": "graphql-codegen --config codegen.yml -r dotenv/config"
   },
   "repository": {
     "type": "git",
@@ -31,10 +33,15 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.1",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.4.3",
+    "@graphql-codegen/typescript-operations": "^2.3.0",
+    "@graphql-codegen/typescript-resolvers": "2.5.0",
     "@types/jest": "^27.4.0",
     "@types/lodash": "^4.14.178",
     "@types/node": "^17.0.15",
-    "@typescript-eslint/parser": "^5.8.1",
+    "@typescript-eslint/parser": "^5.11.0",
     "@vercel/ncc": "^0.33.1",
     "dotenv": "^16.0.0",
     "eslint": "^8.8.0",
