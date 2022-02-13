@@ -6,7 +6,7 @@ import { GithubActionConfig } from "../src/types"
 
 const token = process.env.GITHUB_TOKEN as string
 const defaultPullRequestDescriptionTemplate =
-  "- #{{ number }} @{{ author.login }}\n"
+  "- #{{ number }} @{{ author.login }}"
 const prId = "PR_kwDOGzILZc4yIyxe"
 
 const config: GithubActionConfig = {
