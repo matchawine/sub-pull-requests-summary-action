@@ -163,10 +163,8 @@ exports.getMD = void 0;
 const lodash_1 = __importDefault(__nccwpck_require__(250));
 lodash_1.default.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 const getMD = (prs, config) => {
-    const prsText = prs
-        .map(pr => lodash_1.default.template(config.pullRequestDescriptionTemplate)(pr))
-        .join("");
-    return lodash_1.default.trim(prsText);
+    const getPRText = lodash_1.default.template(config.pullRequestDescriptionTemplate);
+    return prs.map(getPRText).join("\n");
 };
 exports.getMD = getMD;
 
