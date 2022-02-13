@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Ship description MD 1`] = `
-"- #6
-- #7"
+"- #6 @DiesIrae
+- #7 @DiesIrae"
 `;
 
 exports[`Ship description Response 1`] = `
@@ -202,6 +202,12 @@ Object {
 exports[`Ship description Transform 1`] = `
 Array [
   Object {
+    "assignees": Object {
+      "nodes": Array [],
+    },
+    "author": Object {
+      "login": "DiesIrae",
+    },
     "baseRefName": "parent-pr-branch",
     "id": "PR_kwDOGzILZc4yIymT",
     "number": 6,
@@ -209,6 +215,12 @@ Array [
     "title": "Sub PR 1",
   },
   Object {
+    "assignees": Object {
+      "nodes": Array [],
+    },
+    "author": Object {
+      "login": "DiesIrae",
+    },
     "baseRefName": "parent-pr-branch",
     "id": "PR_kwDOGzILZc4yIytK",
     "number": 7,

@@ -1,11 +1,20 @@
 import { GraphQLClient, gql } from "graphql-request"
+import {
+  GetPrWithAssociatedPRsQuery,
+  GetPrWithAssociatedPRsQueryVariables,
+} from "./generated/graphql-op"
+import { GithubActionConfig } from "./types"
 
 const query = gql`
-  query prNode($prId: ID!) {
+  fragment PR on PullRequest {
+    id
+    title
+  }
+
+  query getPRWithAssociatedPRs($prId: ID!) {
     node(id: $prId) {
       ... on PullRequest {
-        id
-        title
+        ...PR
         commits(last: 250) {
           nodes {
             commit {
@@ -21,6 +30,14 @@ const query = gql`
                   baseRefName
                   state
                   number
+                  author {
+                    login
+                  }
+                  assignees(first: 100) {
+                    nodes {
+                      login
+                    }
+                  }
                 }
               }
             }
@@ -33,12 +50,18 @@ const query = gql`
 
 const endpoint = "https://api.github.com/graphql"
 
-// @ts-ignore
-export const executeRequest = async ({ token, prId }) => {
-  const variables = { prId }
+export const executeRequest = async (
+  {
+    prId,
+  }: {
+    prId: string
+  },
+  config: GithubActionConfig,
+): Promise<GetPrWithAssociatedPRsQuery> => {
+  const variables: GetPrWithAssociatedPRsQueryVariables = { prId }
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${config.token}`,
     },
   })
   return await graphQLClient.request(query, variables)

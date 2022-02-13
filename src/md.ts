@@ -1,6 +1,11 @@
 import _ from "lodash"
+import { GithubActionConfig } from "./types"
 
-export const getMD = (prs: any[]) => {
-  const prsText = prs.map(({ title, number }) => `- #${number}`).join("\n")
-  return prsText
+_.templateSettings.interpolate = /{{([\s\S]+?)}}/g
+
+export const getMD = (prs: any[], config: GithubActionConfig) => {
+  const prsText = prs
+    .map(pr => _.template(config.pullRequestDescriptionTemplate)(pr))
+    .join("")
+  return _.trim(prsText)
 }

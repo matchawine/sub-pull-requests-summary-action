@@ -1,0 +1,4 @@
+schema:
+  "https://api.github.com/graphql":
+    headers:
+      authorization: "Bearer ${GITHUB_TOKEN}"

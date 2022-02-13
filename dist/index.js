@@ -19,11 +19,15 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.executeRequest = void 0;
 const graphql_request_1 = __nccwpck_require__(2476);
 const query = (0, graphql_request_1.gql) `
-  query prNode($prId: ID!) {
+  fragment PR on PullRequest {
+    id
+    title
+  }
+
+  query getPRWithAssociatedPRs($prId: ID!) {
     node(id: $prId) {
       ... on PullRequest {
-        id
-        title
+        ...PR
         commits(last: 250) {
           nodes {
             commit {
@@ -39,6 +43,14 @@ const query = (0, graphql_request_1.gql) `
                   baseRefName
                   state
                   number
+                  author {
+                    login
+                  }
+                  assignees(first: 100) {
+                    nodes {
+                      login
+                    }
+                  }
                 }
               }
             }
@@ -49,12 +61,11 @@ const query = (0, graphql_request_1.gql) `
   }
 `;
 const endpoint = "https://api.github.com/graphql";
-// @ts-ignore
-const executeRequest = ({ token, prId }) => __awaiter(void 0, void 0, void 0, function* () {
+const executeRequest = ({ prId, }, config) => __awaiter(void 0, void 0, void 0, function* () {
     const variables = { prId };
     const graphQLClient = new graphql_request_1.GraphQLClient(endpoint, {
         headers: {
-            authorization: `Bearer ${token}`,
+            authorization: `Bearer ${config.token}`,
         },
     });
     return yield graphQLClient.request(query, variables);
@@ -104,19 +115,29 @@ const transform_1 = __nccwpck_require__(1644);
 const md_1 = __nccwpck_require__(9585);
 const updatePR_1 = __nccwpck_require__(2426);
 const github = __importStar(__nccwpck_require__(5438));
+const getConfig = () => {
+    const token = core.getInput("GITHUB_TOKEN");
+    const pullRequestDescriptionTemplate = core.getInput("pull-request-description-template");
+    const baseRefNameFilter = core.getInput("base-ref-name-filter") || null;
+    return {
+        token,
+        baseRefNameFilter,
+        pullRequestDescriptionTemplate,
+    };
+};
 function run() {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const token = core.getInput("GITHUB_TOKEN");
+            const config = getConfig();
             const prId = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.node_id;
             if (!prId)
                 throw new Error("No pull request id found. Are you in a pull request workflow?");
-            const res = yield (0, getRequest_1.executeRequest)({ token, prId });
-            const v = (0, transform_1.transform)(res);
-            const md = (0, md_1.getMD)(v);
+            const res = yield (0, getRequest_1.executeRequest)({ prId }, config);
+            const v = (0, transform_1.transform)(res, config);
+            const md = (0, md_1.getMD)(v, config);
             console.log("Udpate PR", md);
-            (0, updatePR_1.updatePR)({ token, prId, body: md });
+            (0, updatePR_1.updatePR)({ prId, body: md }, config);
         }
         catch (error) {
             if (error instanceof Error)
@@ -130,15 +151,22 @@ run();
 /***/ }),
 
 /***/ 9585:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getMD = void 0;
-const getMD = (prs) => {
-    const prsText = prs.map(({ title, number }) => `- #${number}`).join("\n");
-    return prsText;
+const lodash_1 = __importDefault(__nccwpck_require__(250));
+lodash_1.default.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+const getMD = (prs, config) => {
+    const prsText = prs
+        .map(pr => lodash_1.default.template(config.pullRequestDescriptionTemplate)(pr))
+        .join("");
+    return lodash_1.default.trim(prsText);
 };
 exports.getMD = getMD;
 
@@ -156,17 +184,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.transform = void 0;
 const lodash_1 = __importDefault(__nccwpck_require__(250));
+// type Commit = PullRequest["commits"]
 // @ts-ignore
-const transform = githubResponse => {
+const transform = (githubResponse, config) => {
     const pullRequest = githubResponse.node;
-    const commits = pullRequest.commits.nodes;
+    if (!pullRequest)
+        throw new Error("no pr");
+    const baseRefNameFilter = config.baseRefNameFilter
+        ? { baseRefName: config.baseRefNameFilter }
+        : lodash_1.default.identity;
+    // @ts-ignore
+    const commits = (pullRequest && pullRequest.commits.nodes) || [];
     const associatedPullRequests = (0, lodash_1.default)(commits)
         .map("commit")
         .map("associatedPullRequests")
         .map("nodes")
         .flatten()
         .filter({ state: "MERGED" })
-        // .filter({ baseRefName: "develop", state: "MERGED" })
+        .filter(baseRefNameFilter)
         .uniqBy("id")
         .value();
     return associatedPullRequests;
@@ -205,11 +240,11 @@ const query = (0, graphql_request_1.gql) `
 `;
 const endpoint = "https://api.github.com/graphql";
 // @ts-ignore
-const updatePR = ({ token, prId, body }) => __awaiter(void 0, void 0, void 0, function* () {
+const updatePR = ({ prId, body }, config) => __awaiter(void 0, void 0, void 0, function* () {
     const variables = { prId, body };
     const graphQLClient = new graphql_request_1.GraphQLClient(endpoint, {
         headers: {
-            authorization: `Bearer ${token}`,
+            authorization: `Bearer ${config.token}`,
         },
     });
     return yield graphQLClient.request(query, variables);

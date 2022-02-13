@@ -1,4 +1,5 @@
 import { GraphQLClient, gql } from "graphql-request"
+import { GithubActionConfig } from "./types"
 
 const query = gql`
   mutation updateBody($prId: ID!, $body: String!) {
@@ -14,11 +15,11 @@ const query = gql`
 const endpoint = "https://api.github.com/graphql"
 
 // @ts-ignore
-export const updatePR = async ({ token, prId, body }) => {
+export const updatePR = async ({ prId, body }, config: GithubActionConfig) => {
   const variables = { prId, body }
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${config.token}`,
     },
   })
   return await graphQLClient.request(query, variables)
