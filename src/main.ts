@@ -1,7 +1,7 @@
 import * as core from "@actions/core"
 import { executeRequest } from "./getRequest"
 import { transform } from "./transform"
-import { getMD } from "./md"
+import { getGithubMD, getOutputMD } from "./md"
 import { updatePR } from "./updatePR"
 import * as github from "@actions/github"
 import { GithubActionConfig } from "./types"
@@ -9,16 +9,20 @@ import { config } from "dotenv"
 
 const getConfig = (): GithubActionConfig => {
   const token: string = core.getInput("GITHUB_TOKEN")
-  const pullRequestDescriptionTemplate: string = core.getInput(
-    "pull-request-description-template",
-  )
   const baseRefNameFilter: string | null =
     core.getInput("base-ref-name-filter") || null
 
   return {
     token,
     baseRefNameFilter,
-    pullRequestDescriptionTemplate,
+    childPullRequestGithubMarkdownTemplate: core.getInput(
+      "child-pull-request-github-markdown-template",
+    ),
+    githubMarkdownTemplate: core.getInput("github-markdown-template"),
+    childPullRequestOutputMarkdownTemplate: core.getInput(
+      "child-pull-request-output-markdown-template",
+    ),
+    outputMarkdownTemplate: core.getInput("output-markdown-template"),
   }
 }
 
@@ -35,9 +39,12 @@ async function run(): Promise<void> {
 
     const res = await executeRequest({ prId }, config)
     const v = transform(res, config)
-    const md = getMD(v, config)
-    console.log("Udpate PR", md)
-    updatePR({ prId, body: md }, config)
+    const githubMD = getGithubMD(v, config)
+    console.log("Udpate PR", githubMD)
+    updatePR({ prId, body: githubMD }, config)
+    const outputMD = getOutputMD(v, config)
+
+    core.setOutput("markdown", outputMD)
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }

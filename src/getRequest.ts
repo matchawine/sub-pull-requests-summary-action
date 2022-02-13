@@ -27,6 +27,7 @@ const query = gql`
                 nodes {
                   id
                   title
+                  url
                   baseRefName
                   state
                   number

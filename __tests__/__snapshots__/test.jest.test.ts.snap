@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Ship description MD 1`] = `
+exports[`Ship description Github MD 1`] = `
 "- #6 @DiesIrae
 - #7 @DiesIrae"
+`;
+
+exports[`Ship description Output MD 1`] = `
+"- [#6 Sub PR 1](https://github.com/matchawine/sub-pull-requests-summary-action/pull/6) @DiesIrae
+- [#7 Sub PR 2](https://github.com/matchawine/sub-pull-requests-summary-action/pull/7) @DiesIrae"
 `;
 
 exports[`Ship description Response 1`] = `
@@ -213,6 +218,7 @@ Array [
     "number": 6,
     "state": "MERGED",
     "title": "Sub PR 1",
+    "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/6",
   },
   Object {
     "assignees": Object {
@@ -226,6 +232,7 @@ Array [
     "number": 7,
     "state": "MERGED",
     "title": "Sub PR 2",
+    "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/7",
   },
 ]
 `;

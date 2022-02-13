@@ -40,6 +40,7 @@ const query = (0, graphql_request_1.gql) `
                 nodes {
                   id
                   title
+                  url
                   baseRefName
                   state
                   number
@@ -117,12 +118,14 @@ const updatePR_1 = __nccwpck_require__(2426);
 const github = __importStar(__nccwpck_require__(5438));
 const getConfig = () => {
     const token = core.getInput("GITHUB_TOKEN");
-    const pullRequestDescriptionTemplate = core.getInput("pull-request-description-template");
     const baseRefNameFilter = core.getInput("base-ref-name-filter") || null;
     return {
         token,
         baseRefNameFilter,
-        pullRequestDescriptionTemplate,
+        childPullRequestGithubMarkdownTemplate: core.getInput("child-pull-request-github-markdown-template"),
+        githubMarkdownTemplate: core.getInput("github-markdown-template"),
+        childPullRequestOutputMarkdownTemplate: core.getInput("child-pull-request-output-markdown-template"),
+        outputMarkdownTemplate: core.getInput("output-markdown-template"),
     };
 };
 function run() {
@@ -135,9 +138,11 @@ function run() {
                 throw new Error("No pull request id found. Are you in a pull request workflow?");
             const res = yield (0, getRequest_1.executeRequest)({ prId }, config);
             const v = (0, transform_1.transform)(res, config);
-            const md = (0, md_1.getMD)(v, config);
-            console.log("Udpate PR", md);
-            (0, updatePR_1.updatePR)({ prId, body: md }, config);
+            const githubMD = (0, md_1.getGithubMD)(v, config);
+            console.log("Udpate PR", githubMD);
+            (0, updatePR_1.updatePR)({ prId, body: githubMD }, config);
+            const outputMD = (0, md_1.getOutputMD)(v, config);
+            core.setOutput("markdown", outputMD);
         }
         catch (error) {
             if (error instanceof Error)
@@ -159,14 +164,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getMD = void 0;
+exports.getOutputMD = exports.getGithubMD = void 0;
 const lodash_1 = __importDefault(__nccwpck_require__(250));
 lodash_1.default.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-const getMD = (prs, config) => {
-    const getPRText = lodash_1.default.template(config.pullRequestDescriptionTemplate);
-    return prs.map(getPRText).join("\n");
+const getMD = (prs, pullRequestMarkdownTemplate, markdownTemplate) => {
+    const getPRText = lodash_1.default.template(pullRequestMarkdownTemplate);
+    const childrenPullRequestMarkdowns = prs.map(getPRText);
+    return lodash_1.default.template(markdownTemplate)({ childrenPullRequestMarkdowns });
 };
-exports.getMD = getMD;
+const getGithubMD = (prs, config) => getMD(prs, config.childPullRequestGithubMarkdownTemplate, config.githubMarkdownTemplate);
+exports.getGithubMD = getGithubMD;
+const getOutputMD = (prs, config) => getMD(prs, config.childPullRequestOutputMarkdownTemplate, config.outputMarkdownTemplate);
+exports.getOutputMD = getOutputMD;
 
 
 /***/ }),
