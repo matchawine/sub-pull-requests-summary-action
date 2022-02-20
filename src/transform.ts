@@ -1,4 +1,4 @@
-import _ from "lodash"
+import _, { filter } from "lodash"
 import { GetPrWithAssociatedPRsQuery } from "./generated/graphql-op"
 import { GithubActionConfig } from "./types"
 
@@ -30,5 +30,11 @@ export const transform = (
     .filter(baseRefNameFilter)
     .uniqBy("id")
     .value()
-  return associatedPullRequests
+
+  const loneCommits = _(commits)
+    .map("commit")
+    .filter(commit => _.isEmpty(commit.associatedPullRequests.nodes))
+    .value()
+
+  return { associatedPullRequests, loneCommits }
 }

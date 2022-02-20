@@ -167,14 +167,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOutputMD = exports.getGithubMD = void 0;
 const lodash_1 = __importDefault(__nccwpck_require__(250));
 lodash_1.default.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-const getMD = (prs, pullRequestMarkdownTemplate, markdownTemplate) => {
+const getMD = ({ associatedPullRequests }, pullRequestMarkdownTemplate, markdownTemplate) => {
     const getPRText = lodash_1.default.template(pullRequestMarkdownTemplate);
-    const childrenPullRequestMarkdowns = prs.map(getPRText);
+    const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText);
     return lodash_1.default.template(markdownTemplate)({ childrenPullRequestMarkdowns });
 };
-const getGithubMD = (prs, config) => getMD(prs, config.childPullRequestGithubMarkdownTemplate, config.githubMarkdownTemplate);
+const getGithubMD = (input, config) => getMD(input, config.childPullRequestGithubMarkdownTemplate, config.githubMarkdownTemplate);
 exports.getGithubMD = getGithubMD;
-const getOutputMD = (prs, config) => getMD(prs, config.childPullRequestOutputMarkdownTemplate, config.outputMarkdownTemplate);
+const getOutputMD = (input, config) => getMD(input, config.childPullRequestOutputMarkdownTemplate, config.outputMarkdownTemplate);
 exports.getOutputMD = getOutputMD;
 
 
@@ -211,7 +211,11 @@ const transform = (githubResponse, config) => {
         .filter(baseRefNameFilter)
         .uniqBy("id")
         .value();
-    return associatedPullRequests;
+    const loneCommits = (0, lodash_1.default)(commits)
+        .map("commit")
+        .filter(commit => lodash_1.default.isEmpty(commit.associatedPullRequests.nodes))
+        .value();
+    return { associatedPullRequests, loneCommits };
 };
 exports.transform = transform;
 

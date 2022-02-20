@@ -1,28 +1,33 @@
 import _ from "lodash"
 import { GithubActionConfig } from "./types"
 
+type Input = {
+  associatedPullRequests: any[]
+  loneCommits: any[]
+}
+
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g
 
 const getMD = (
-  prs: any[],
+  { associatedPullRequests }: Input,
   pullRequestMarkdownTemplate: string,
   markdownTemplate: string,
 ) => {
   const getPRText = _.template(pullRequestMarkdownTemplate)
-  const childrenPullRequestMarkdowns = prs.map(getPRText)
+  const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText)
   return _.template(markdownTemplate)({ childrenPullRequestMarkdowns })
 }
 
-export const getGithubMD = (prs: any[], config: GithubActionConfig) =>
+export const getGithubMD = (input: Input, config: GithubActionConfig) =>
   getMD(
-    prs,
+    input,
     config.childPullRequestGithubMarkdownTemplate,
     config.githubMarkdownTemplate,
   )
 
-export const getOutputMD = (prs: any[], config: GithubActionConfig) =>
+export const getOutputMD = (input: Input, config: GithubActionConfig) =>
   getMD(
-    prs,
+    input,
     config.childPullRequestOutputMarkdownTemplate,
     config.outputMarkdownTemplate,
   )

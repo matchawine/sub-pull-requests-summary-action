@@ -2,12 +2,14 @@
 
 exports[`Ship description Github MD 1`] = `
 "- #6 @DiesIrae
-- #7 @DiesIrae"
+- #7 @DiesIrae
+- #8 @DiesIrae"
 `;
 
 exports[`Ship description Output MD 1`] = `
 "- [#6 Sub PR 1](https://github.com/matchawine/sub-pull-requests-summary-action/pull/6) @DiesIrae
-- [#7 Sub PR 2](https://github.com/matchawine/sub-pull-requests-summary-action/pull/7) @DiesIrae"
+- [#7 Sub PR 2](https://github.com/matchawine/sub-pull-requests-summary-action/pull/7) @DiesIrae
+- [#8 Test PR](https://github.com/matchawine/sub-pull-requests-summary-action/pull/8) @DiesIrae"
 `;
 
 exports[`Ship description Response 1`] = `
@@ -205,34 +207,51 @@ Object {
 `;
 
 exports[`Ship description Transform 1`] = `
-Array [
-  Object {
-    "assignees": Object {
-      "nodes": Array [],
+Object {
+  "associatedPullRequests": Array [
+    Object {
+      "assignees": Object {
+        "nodes": Array [],
+      },
+      "author": Object {
+        "login": "DiesIrae",
+      },
+      "baseRefName": "parent-pr-branch",
+      "id": "PR_kwDOGzILZc4yIymT",
+      "number": 6,
+      "state": "MERGED",
+      "title": "Sub PR 1",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/6",
     },
-    "author": Object {
-      "login": "DiesIrae",
+    Object {
+      "assignees": Object {
+        "nodes": Array [],
+      },
+      "author": Object {
+        "login": "DiesIrae",
+      },
+      "baseRefName": "parent-pr-branch",
+      "id": "PR_kwDOGzILZc4yIytK",
+      "number": 7,
+      "state": "MERGED",
+      "title": "Sub PR 2",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/7",
     },
-    "baseRefName": "parent-pr-branch",
-    "id": "PR_kwDOGzILZc4yIymT",
-    "number": 6,
-    "state": "MERGED",
-    "title": "Sub PR 1",
-    "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/6",
-  },
-  Object {
-    "assignees": Object {
-      "nodes": Array [],
+    Object {
+      "assignees": Object {
+        "nodes": Array [],
+      },
+      "author": Object {
+        "login": "DiesIrae",
+      },
+      "baseRefName": "main",
+      "id": "PR_kwDOGzILZc4yIyxe",
+      "number": 8,
+      "state": "MERGED",
+      "title": "Test PR",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/8",
     },
-    "author": Object {
-      "login": "DiesIrae",
-    },
-    "baseRefName": "parent-pr-branch",
-    "id": "PR_kwDOGzILZc4yIytK",
-    "number": 7,
-    "state": "MERGED",
-    "title": "Sub PR 2",
-    "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/7",
-  },
-]
+  ],
+  "loneCommits": Array [],
+}
 `;

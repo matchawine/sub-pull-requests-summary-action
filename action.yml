@@ -17,7 +17,7 @@ inputs:
   child-pull-request-output-markdown-template:
     description: "bouh"
     required: false
-    default: "- #{{ number }} @{{ author.login }}"
+    default: "- [#{{ number }}]({{ url }}) {{ title }} @{{ author.login }}"
   output-markdown-template:
     description: "bouh"
     required: false
