@@ -20,7 +20,7 @@ const getMD = (
 
   const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText)
   const loneCommitMarkdowns = loneCommits.map(getCommitText)
-  console.log("loneCommitMarkdowns", loneCommitMarkdowns)
+
   return _.template(markdownTemplate)({
     childrenPullRequestMarkdowns,
     loneCommitMarkdowns,

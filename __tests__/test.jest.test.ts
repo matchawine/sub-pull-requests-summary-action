@@ -6,7 +6,7 @@ import { getGithubMD, getOutputMD } from "../src/md"
 
 const token = process.env.GITHUB_TOKEN as string
 
-const prId = "PR_kwDOGzILZc4yIyxe"
+const prId = "PR_kwDOGzILZc4zL_V6"
 
 const config: GithubActionConfig = {
   token,
@@ -20,7 +20,7 @@ const config: GithubActionConfig = {
 }
 
 describe("Ship description", () => {
-  test.skip("Response", async () => {
+  test("Response", async () => {
     const res = await executeRequest({ prId }, config)
     expect(res).toMatchSnapshot()
   })

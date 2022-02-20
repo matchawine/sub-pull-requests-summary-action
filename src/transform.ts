@@ -33,7 +33,11 @@ export const transform = (
 
   const loneCommits = _(commits)
     .map("commit")
-    .filter(commit => _.isEmpty(commit.associatedPullRequests.nodes))
+    .filter(commit =>
+      _(commit.associatedPullRequests.nodes)
+        .filter({ state: "MERGED" })
+        .isEmpty(),
+    )
     .value()
 
   return { associatedPullRequests, loneCommits }
