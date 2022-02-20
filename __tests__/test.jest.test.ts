@@ -14,6 +14,10 @@ const config: GithubActionConfig = {
   childPullRequestGithubMarkdownTemplate: "- #{{ number }} @{{ author.login }}",
   githubMarkdownTemplate:
     "{{ childrenPullRequestMarkdowns.join(`\n`) }}{{ loneCommitMarkdowns.length > 0 ? `\n\nLone commits:\n${loneCommitMarkdowns.join(`\n`)}` : `` }}",
+  loneCommitGithubMarkdownTemplate:
+    "- [{{ abbreviatedOid }}]({{ url }}) {{ message }} @{{ author.user.login }}",
+  loneCommitOutputMarkdownTemplate:
+    "- [{{ abbreviatedOid }}]({{ url }}) {{ message }} @{{ author.user.login }}",
   childPullRequestOutputMarkdownTemplate:
     "- [#{{ number }} {{ title }}]({{ url }}) @{{ author.login }}",
   outputMarkdownTemplate: "{{ childrenPullRequestMarkdowns.join(`\n`) }}",

@@ -8,15 +8,22 @@ type Input = {
 
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g
 
-const loneCommitMarkdown = "[{{ abbreviatedOid }}]({{ url }}) {{ message }}"
+type Config = {
+  pullRequestMarkdownTemplate: string
+  loneCommitMarkdownTemplate: string
+  markdownTemplate: string
+}
 
 const getMD = (
   { associatedPullRequests, loneCommits }: Input,
-  pullRequestMarkdownTemplate: string,
-  markdownTemplate: string,
+  {
+    pullRequestMarkdownTemplate,
+    loneCommitMarkdownTemplate,
+    markdownTemplate,
+  }: Config,
 ) => {
   const getPRText = _.template(pullRequestMarkdownTemplate)
-  const getCommitText = _.template(loneCommitMarkdown)
+  const getCommitText = _.template(loneCommitMarkdownTemplate)
 
   const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText)
   const loneCommitMarkdowns = loneCommits.map(getCommitText)
@@ -28,15 +35,15 @@ const getMD = (
 }
 
 export const getGithubMD = (input: Input, config: GithubActionConfig) =>
-  getMD(
-    input,
-    config.childPullRequestGithubMarkdownTemplate,
-    config.githubMarkdownTemplate,
-  )
+  getMD(input, {
+    pullRequestMarkdownTemplate: config.childPullRequestGithubMarkdownTemplate,
+    loneCommitMarkdownTemplate: config.loneCommitGithubMarkdownTemplate,
+    markdownTemplate: config.githubMarkdownTemplate,
+  })
 
 export const getOutputMD = (input: Input, config: GithubActionConfig) =>
-  getMD(
-    input,
-    config.childPullRequestOutputMarkdownTemplate,
-    config.outputMarkdownTemplate,
-  )
+  getMD(input, {
+    pullRequestMarkdownTemplate: config.childPullRequestOutputMarkdownTemplate,
+    loneCommitMarkdownTemplate: config.loneCommitOutputMarkdownTemplate,
+    markdownTemplate: config.outputMarkdownTemplate,
+  })

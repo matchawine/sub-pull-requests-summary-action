@@ -9,6 +9,10 @@ inputs:
     description: "bouh"
     required: false
     default: "- #{{ number }} @{{ author.login }}"
+  lone-commit-github-markdown-template:
+    description: "bouh"
+    required: false
+    default: "- [{{ abbreviatedOid }}]({{ url }}) {{ message }} @{{ author.user.login }}"
   github-markdown-template:
     description: "bouh"
     required: false
@@ -18,6 +22,10 @@ inputs:
     description: "bouh"
     required: false
     default: "- [#{{ number }}]({{ url }}) {{ title }} @{{ author.login }}"
+  lone-commit-output-markdown-template:
+    description: "bouh"
+    required: false
+    default: "- [{{ abbreviatedOid }}]({{ url }}) {{ message }} @{{ author.user.login }}"
   output-markdown-template:
     description: "bouh"
     required: false
