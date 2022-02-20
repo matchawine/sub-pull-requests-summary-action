@@ -18,8 +18,15 @@ const query = gql`
         commits(last: 250) {
           nodes {
             commit {
+              id
               abbreviatedOid
               message
+              url
+              author {
+                user {
+                  login
+                }
+              }
               associatedPullRequests(
                 first: 10
                 orderBy: { field: UPDATED_AT, direction: DESC }

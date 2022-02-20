@@ -31,8 +31,15 @@ const query = (0, graphql_request_1.gql) `
         commits(last: 250) {
           nodes {
             commit {
+              id
               abbreviatedOid
               message
+              url
+              author {
+                user {
+                  login
+                }
+              }
               associatedPullRequests(
                 first: 10
                 orderBy: { field: UPDATED_AT, direction: DESC }
@@ -167,10 +174,17 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOutputMD = exports.getGithubMD = void 0;
 const lodash_1 = __importDefault(__nccwpck_require__(250));
 lodash_1.default.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-const getMD = ({ associatedPullRequests }, pullRequestMarkdownTemplate, markdownTemplate) => {
+const loneCommitMarkdown = "[{{ abbreviatedOid }}]({{ url }}) {{ message }}";
+const getMD = ({ associatedPullRequests, loneCommits }, pullRequestMarkdownTemplate, markdownTemplate) => {
     const getPRText = lodash_1.default.template(pullRequestMarkdownTemplate);
+    const getCommitText = lodash_1.default.template(loneCommitMarkdown);
     const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText);
-    return lodash_1.default.template(markdownTemplate)({ childrenPullRequestMarkdowns });
+    const loneCommitMarkdowns = loneCommits.map(getCommitText);
+    console.log("loneCommitMarkdowns", loneCommitMarkdowns);
+    return lodash_1.default.template(markdownTemplate)({
+        childrenPullRequestMarkdowns,
+        loneCommitMarkdowns,
+    });
 };
 const getGithubMD = (input, config) => getMD(input, config.childPullRequestGithubMarkdownTemplate, config.githubMarkdownTemplate);
 exports.getGithubMD = getGithubMD;

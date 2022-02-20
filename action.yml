@@ -12,7 +12,7 @@ inputs:
   github-markdown-template:
     description: "bouh"
     required: false
-    default: "{{ childrenPullRequestMarkdowns.join(`\n`) }}"
+    default: "{{ childrenPullRequestMarkdowns.join(`\n`) }}{{ loneCommitMarkdowns.length > 0 ? `\n\nLone commits:\n${loneCommitMarkdowns.join(`\n`)}` : `` }}"
 
   child-pull-request-output-markdown-template:
     description: "bouh"

@@ -8,14 +8,23 @@ type Input = {
 
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g
 
+const loneCommitMarkdown = "[{{ abbreviatedOid }}]({{ url }}) {{ message }}"
+
 const getMD = (
-  { associatedPullRequests }: Input,
+  { associatedPullRequests, loneCommits }: Input,
   pullRequestMarkdownTemplate: string,
   markdownTemplate: string,
 ) => {
   const getPRText = _.template(pullRequestMarkdownTemplate)
+  const getCommitText = _.template(loneCommitMarkdown)
+
   const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText)
-  return _.template(markdownTemplate)({ childrenPullRequestMarkdowns })
+  const loneCommitMarkdowns = loneCommits.map(getCommitText)
+  console.log("loneCommitMarkdowns", loneCommitMarkdowns)
+  return _.template(markdownTemplate)({
+    childrenPullRequestMarkdowns,
+    loneCommitMarkdowns,
+  })
 }
 
 export const getGithubMD = (input: Input, config: GithubActionConfig) =>

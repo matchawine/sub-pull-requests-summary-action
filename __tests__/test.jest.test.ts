@@ -12,7 +12,8 @@ const config: GithubActionConfig = {
   token,
   baseRefNameFilter: null,
   childPullRequestGithubMarkdownTemplate: "- #{{ number }} @{{ author.login }}",
-  githubMarkdownTemplate: "{{ childrenPullRequestMarkdowns.join(`\n`) }}",
+  githubMarkdownTemplate:
+    "{{ childrenPullRequestMarkdowns.join(`\n`) }}{{ loneCommitMarkdowns.length > 0 ? `\n\nLone commits:\n${loneCommitMarkdowns.join(`\n`)}` : `` }}",
   childPullRequestOutputMarkdownTemplate:
     "- [#{{ number }} {{ title }}]({{ url }}) @{{ author.login }}",
   outputMarkdownTemplate: "{{ childrenPullRequestMarkdowns.join(`\n`) }}",
