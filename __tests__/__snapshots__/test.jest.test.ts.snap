@@ -5,7 +5,8 @@ exports[`Ship description Github MD 1`] = `
 - #19 @DiesIrae
 
 Lone commits:
-[6f890b6](https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260) Lone commit 1"
+- [6f890b6](https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260) Lone commit 1 @DiesIrae
+- [6542788](https://github.com/matchawine/sub-pull-requests-summary-action/commit/6542788e8f830800a21e7a8a865f3f6ef0dbc2ea) Lone commits @DiesIrae"
 `;
 
 exports[`Ship description Output MD 1`] = `
@@ -229,6 +230,37 @@ Object {
             "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260",
           },
         },
+        Object {
+          "commit": Object {
+            "abbreviatedOid": "6542788",
+            "associatedPullRequests": Object {
+              "nodes": Array [
+                Object {
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "target-branch",
+                  "id": "PR_kwDOGzILZc4zL_V6",
+                  "number": 20,
+                  "state": "OPEN",
+                  "title": "Test Parent PR",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
+                },
+              ],
+            },
+            "author": Object {
+              "user": Object {
+                "login": "DiesIrae",
+              },
+            },
+            "id": "C_kwDOGzILZdoAKDY1NDI3ODhlOGY4MzA4MDBhMjFlN2E4YTg2NWYzZjZlZjBkYmMyZWE",
+            "message": "Lone commits",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/6542788e8f830800a21e7a8a865f3f6ef0dbc2ea",
+          },
+        },
       ],
     },
     "id": "PR_kwDOGzILZc4zL_V6",
@@ -298,6 +330,35 @@ Object {
       "id": "C_kwDOGzILZdoAKDZmODkwYjZlNTcwYzY2ZDhjYjI4YzI2MTUyOGU3ZTA2MzcwZjYyNjA",
       "message": "Lone commit 1",
       "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260",
+    },
+    Object {
+      "abbreviatedOid": "6542788",
+      "associatedPullRequests": Object {
+        "nodes": Array [
+          Object {
+            "assignees": Object {
+              "nodes": Array [],
+            },
+            "author": Object {
+              "login": "DiesIrae",
+            },
+            "baseRefName": "target-branch",
+            "id": "PR_kwDOGzILZc4zL_V6",
+            "number": 20,
+            "state": "OPEN",
+            "title": "Test Parent PR",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
+          },
+        ],
+      },
+      "author": Object {
+        "user": Object {
+          "login": "DiesIrae",
+        },
+      },
+      "id": "C_kwDOGzILZdoAKDY1NDI3ODhlOGY4MzA4MDBhMjFlN2E4YTg2NWYzZjZlZjBkYmMyZWE",
+      "message": "Lone commits",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/6542788e8f830800a21e7a8a865f3f6ef0dbc2ea",
     },
   ],
 }

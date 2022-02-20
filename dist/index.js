@@ -130,8 +130,10 @@ const getConfig = () => {
         token,
         baseRefNameFilter,
         childPullRequestGithubMarkdownTemplate: core.getInput("child-pull-request-github-markdown-template"),
+        loneCommitGithubMarkdownTemplate: core.getInput("lone-commit-github-markdown-template"),
         githubMarkdownTemplate: core.getInput("github-markdown-template"),
         childPullRequestOutputMarkdownTemplate: core.getInput("child-pull-request-output-markdown-template"),
+        loneCommitOutputMarkdownTemplate: core.getInput("lone-commit-request-output-markdown-template"),
         outputMarkdownTemplate: core.getInput("output-markdown-template"),
     };
 };
@@ -174,10 +176,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOutputMD = exports.getGithubMD = void 0;
 const lodash_1 = __importDefault(__nccwpck_require__(250));
 lodash_1.default.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-const loneCommitMarkdown = "[{{ abbreviatedOid }}]({{ url }}) {{ message }}";
-const getMD = ({ associatedPullRequests, loneCommits }, pullRequestMarkdownTemplate, markdownTemplate) => {
+const getMD = ({ associatedPullRequests, loneCommits }, { pullRequestMarkdownTemplate, loneCommitMarkdownTemplate, markdownTemplate, }) => {
     const getPRText = lodash_1.default.template(pullRequestMarkdownTemplate);
-    const getCommitText = lodash_1.default.template(loneCommitMarkdown);
+    const getCommitText = lodash_1.default.template(loneCommitMarkdownTemplate);
     const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText);
     const loneCommitMarkdowns = loneCommits.map(getCommitText);
     return lodash_1.default.template(markdownTemplate)({
@@ -185,9 +186,17 @@ const getMD = ({ associatedPullRequests, loneCommits }, pullRequestMarkdownTempl
         loneCommitMarkdowns,
     });
 };
-const getGithubMD = (input, config) => getMD(input, config.childPullRequestGithubMarkdownTemplate, config.githubMarkdownTemplate);
+const getGithubMD = (input, config) => getMD(input, {
+    pullRequestMarkdownTemplate: config.childPullRequestGithubMarkdownTemplate,
+    loneCommitMarkdownTemplate: config.loneCommitGithubMarkdownTemplate,
+    markdownTemplate: config.githubMarkdownTemplate,
+});
 exports.getGithubMD = getGithubMD;
-const getOutputMD = (input, config) => getMD(input, config.childPullRequestOutputMarkdownTemplate, config.outputMarkdownTemplate);
+const getOutputMD = (input, config) => getMD(input, {
+    pullRequestMarkdownTemplate: config.childPullRequestOutputMarkdownTemplate,
+    loneCommitMarkdownTemplate: config.loneCommitOutputMarkdownTemplate,
+    markdownTemplate: config.outputMarkdownTemplate,
+});
 exports.getOutputMD = getOutputMD;
 
 

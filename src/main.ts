@@ -18,9 +18,15 @@ const getConfig = (): GithubActionConfig => {
     childPullRequestGithubMarkdownTemplate: core.getInput(
       "child-pull-request-github-markdown-template",
     ),
+    loneCommitGithubMarkdownTemplate: core.getInput(
+      "lone-commit-github-markdown-template",
+    ),
     githubMarkdownTemplate: core.getInput("github-markdown-template"),
     childPullRequestOutputMarkdownTemplate: core.getInput(
       "child-pull-request-output-markdown-template",
+    ),
+    loneCommitOutputMarkdownTemplate: core.getInput(
+      "lone-commit-request-output-markdown-template",
     ),
     outputMarkdownTemplate: core.getInput("output-markdown-template"),
   }
