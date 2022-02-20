@@ -1,15 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Ship description Github MD 1`] = `
-"- #6 @DiesIrae
-- #7 @DiesIrae
-- #8 @DiesIrae"
+"- #18 @DiesIrae
+- #19 @DiesIrae
+
+Lone commits:
+[6f890b6](https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260) Lone commit 1"
 `;
 
 exports[`Ship description Output MD 1`] = `
-"- [#6 Sub PR 1](https://github.com/matchawine/sub-pull-requests-summary-action/pull/6) @DiesIrae
-- [#7 Sub PR 2](https://github.com/matchawine/sub-pull-requests-summary-action/pull/7) @DiesIrae
-- [#8 Test PR](https://github.com/matchawine/sub-pull-requests-summary-action/pull/8) @DiesIrae"
+"- [#18 Sub PR 1](https://github.com/matchawine/sub-pull-requests-summary-action/pull/18) @DiesIrae
+- [#19 Sub PR 2](https://github.com/matchawine/sub-pull-requests-summary-action/pull/19) @DiesIrae"
 `;
 
 exports[`Ship description Response 1`] = `
@@ -19,189 +20,219 @@ Object {
       "nodes": Array [
         Object {
           "commit": Object {
-            "abbreviatedOid": "2bcc868",
+            "abbreviatedOid": "805ed82",
             "associatedPullRequests": Object {
               "nodes": Array [
                 Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "target-branch",
+                  "id": "PR_kwDOGzILZc4zL_V6",
+                  "number": 20,
                   "state": "OPEN",
-                  "title": "Test PR",
+                  "title": "Test Parent PR",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
                 },
                 Object {
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
                   "baseRefName": "parent-pr-branch",
-                  "id": "PR_kwDOGzILZc4yIymT",
-                  "number": 6,
+                  "id": "PR_kwDOGzILZc4zL_MY",
+                  "number": 18,
                   "state": "MERGED",
                   "title": "Sub PR 1",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/18",
                 },
               ],
             },
+            "author": Object {
+              "user": Object {
+                "login": "DiesIrae",
+              },
+            },
+            "id": "C_kwDOGzILZdoAKDgwNWVkODIzMGRhNzhkNjc2ZWQ5NTEyNTAzNTZkZjFhNjU2NjM1ODQ",
             "message": "Sub PR 1 commit",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/805ed8230da78d676ed951250356df1a65663584",
           },
         },
         Object {
           "commit": Object {
-            "abbreviatedOid": "87b50d6",
+            "abbreviatedOid": "05d8493",
             "associatedPullRequests": Object {
               "nodes": Array [
                 Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "target-branch",
+                  "id": "PR_kwDOGzILZc4zL_V6",
+                  "number": 20,
                   "state": "OPEN",
-                  "title": "Test PR",
+                  "title": "Test Parent PR",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
                 },
                 Object {
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
                   "baseRefName": "parent-pr-branch",
-                  "id": "PR_kwDOGzILZc4yIytK",
-                  "number": 7,
-                  "state": "MERGED",
-                  "title": "Sub PR 2",
-                },
-              ],
-            },
-            "message": "Sub PR 2 commit",
-          },
-        },
-        Object {
-          "commit": Object {
-            "abbreviatedOid": "eee4ff5",
-            "associatedPullRequests": Object {
-              "nodes": Array [
-                Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
-                  "state": "OPEN",
-                  "title": "Test PR",
-                },
-                Object {
-                  "baseRefName": "parent-pr-branch",
-                  "id": "PR_kwDOGzILZc4yIymT",
-                  "number": 6,
+                  "id": "PR_kwDOGzILZc4zL_MY",
+                  "number": 18,
                   "state": "MERGED",
                   "title": "Sub PR 1",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/18",
                 },
               ],
             },
-            "message": "Merge pull request #6 from matchawine/sub-pr-1",
+            "author": Object {
+              "user": Object {
+                "login": "DiesIrae",
+              },
+            },
+            "id": "C_kwDOGzILZdoAKDA1ZDg0OTNkNWY4YzA0YzVjYThlZjM0NGQ4N2M0ZjgwMTgzYWQ5Y2I",
+            "message": "Merge pull request #18 from matchawine/sub-pr1-branch",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/05d8493d5f8c04c5ca8ef344d87c4f80183ad9cb",
           },
         },
         Object {
           "commit": Object {
-            "abbreviatedOid": "d33251f",
+            "abbreviatedOid": "b4cd0f5",
             "associatedPullRequests": Object {
               "nodes": Array [
                 Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "target-branch",
+                  "id": "PR_kwDOGzILZc4zL_V6",
+                  "number": 20,
                   "state": "OPEN",
-                  "title": "Test PR",
+                  "title": "Test Parent PR",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
                 },
                 Object {
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
                   "baseRefName": "parent-pr-branch",
-                  "id": "PR_kwDOGzILZc4yIytK",
-                  "number": 7,
+                  "id": "PR_kwDOGzILZc4zL_SN",
+                  "number": 19,
                   "state": "MERGED",
                   "title": "Sub PR 2",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/19",
                 },
               ],
             },
-            "message": "Merge pull request #7 from matchawine/sub-pr-2",
+            "author": Object {
+              "user": Object {
+                "login": "DiesIrae",
+              },
+            },
+            "id": "C_kwDOGzILZdoAKGI0Y2QwZjVkOWQyMTcxOGE4YThlZjM3Nzg0ZjM4NzZkZGM4MWI5MDY",
+            "message": "Sub PR 2 commit",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/b4cd0f5d9d21718a8a8ef37784f3876ddc81b906",
           },
         },
         Object {
           "commit": Object {
-            "abbreviatedOid": "21c14e3",
+            "abbreviatedOid": "43d39b4",
             "associatedPullRequests": Object {
               "nodes": Array [
                 Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "target-branch",
+                  "id": "PR_kwDOGzILZc4zL_V6",
+                  "number": 20,
                   "state": "OPEN",
-                  "title": "Test PR",
+                  "title": "Test Parent PR",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
+                },
+                Object {
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "parent-pr-branch",
+                  "id": "PR_kwDOGzILZc4zL_SN",
+                  "number": 19,
+                  "state": "MERGED",
+                  "title": "Sub PR 2",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/19",
                 },
               ],
             },
-            "message": "Merge branch 'main' into parent-pr-branch",
+            "author": Object {
+              "user": Object {
+                "login": "DiesIrae",
+              },
+            },
+            "id": "C_kwDOGzILZdoAKDQzZDM5YjQzOGJhNjlmOGY0ZTM4NTg4YzZhMGY1NjdlMjVjYmE2MDA",
+            "message": "Merge pull request #19 from matchawine/sub-pr2-branch",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/43d39b438ba69f8f4e38588c6a0f567e25cba600",
           },
         },
         Object {
           "commit": Object {
-            "abbreviatedOid": "ba8d764",
+            "abbreviatedOid": "6f890b6",
             "associatedPullRequests": Object {
               "nodes": Array [
                 Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
+                  "assignees": Object {
+                    "nodes": Array [],
+                  },
+                  "author": Object {
+                    "login": "DiesIrae",
+                  },
+                  "baseRefName": "target-branch",
+                  "id": "PR_kwDOGzILZc4zL_V6",
+                  "number": 20,
                   "state": "OPEN",
-                  "title": "Test PR",
+                  "title": "Test Parent PR",
+                  "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
                 },
               ],
             },
-            "message": "Init",
-          },
-        },
-        Object {
-          "commit": Object {
-            "abbreviatedOid": "302667c",
-            "associatedPullRequests": Object {
-              "nodes": Array [
-                Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
-                  "state": "OPEN",
-                  "title": "Test PR",
-                },
-              ],
+            "author": Object {
+              "user": Object {
+                "login": "DiesIrae",
+              },
             },
-            "message": "Init",
-          },
-        },
-        Object {
-          "commit": Object {
-            "abbreviatedOid": "762623d",
-            "associatedPullRequests": Object {
-              "nodes": Array [
-                Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
-                  "state": "OPEN",
-                  "title": "Test PR",
-                },
-              ],
-            },
-            "message": "Init",
-          },
-        },
-        Object {
-          "commit": Object {
-            "abbreviatedOid": "f9bfb1e",
-            "associatedPullRequests": Object {
-              "nodes": Array [
-                Object {
-                  "baseRefName": "main",
-                  "id": "PR_kwDOGzILZc4yIyxe",
-                  "number": 8,
-                  "state": "OPEN",
-                  "title": "Test PR",
-                },
-              ],
-            },
-            "message": "Init",
+            "id": "C_kwDOGzILZdoAKDZmODkwYjZlNTcwYzY2ZDhjYjI4YzI2MTUyOGU3ZTA2MzcwZjYyNjA",
+            "message": "Lone commit 1",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260",
           },
         },
       ],
     },
-    "id": "PR_kwDOGzILZc4yIyxe",
-    "title": "Test PR",
+    "id": "PR_kwDOGzILZc4zL_V6",
+    "title": "Test Parent PR",
   },
 }
 `;
@@ -217,11 +248,11 @@ Object {
         "login": "DiesIrae",
       },
       "baseRefName": "parent-pr-branch",
-      "id": "PR_kwDOGzILZc4yIymT",
-      "number": 6,
+      "id": "PR_kwDOGzILZc4zL_MY",
+      "number": 18,
       "state": "MERGED",
       "title": "Sub PR 1",
-      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/6",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/18",
     },
     Object {
       "assignees": Object {
@@ -231,27 +262,43 @@ Object {
         "login": "DiesIrae",
       },
       "baseRefName": "parent-pr-branch",
-      "id": "PR_kwDOGzILZc4yIytK",
-      "number": 7,
+      "id": "PR_kwDOGzILZc4zL_SN",
+      "number": 19,
       "state": "MERGED",
       "title": "Sub PR 2",
-      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/7",
-    },
-    Object {
-      "assignees": Object {
-        "nodes": Array [],
-      },
-      "author": Object {
-        "login": "DiesIrae",
-      },
-      "baseRefName": "main",
-      "id": "PR_kwDOGzILZc4yIyxe",
-      "number": 8,
-      "state": "MERGED",
-      "title": "Test PR",
-      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/8",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/19",
     },
   ],
-  "loneCommits": Array [],
+  "loneCommits": Array [
+    Object {
+      "abbreviatedOid": "6f890b6",
+      "associatedPullRequests": Object {
+        "nodes": Array [
+          Object {
+            "assignees": Object {
+              "nodes": Array [],
+            },
+            "author": Object {
+              "login": "DiesIrae",
+            },
+            "baseRefName": "target-branch",
+            "id": "PR_kwDOGzILZc4zL_V6",
+            "number": 20,
+            "state": "OPEN",
+            "title": "Test Parent PR",
+            "url": "https://github.com/matchawine/sub-pull-requests-summary-action/pull/20",
+          },
+        ],
+      },
+      "author": Object {
+        "user": Object {
+          "login": "DiesIrae",
+        },
+      },
+      "id": "C_kwDOGzILZdoAKDZmODkwYjZlNTcwYzY2ZDhjYjI4YzI2MTUyOGU3ZTA2MzcwZjYyNjA",
+      "message": "Lone commit 1",
+      "url": "https://github.com/matchawine/sub-pull-requests-summary-action/commit/6f890b6e570c66d8cb28c261528e7e06370f6260",
+    },
+  ],
 }
 `;

@@ -180,7 +180,6 @@ const getMD = ({ associatedPullRequests, loneCommits }, pullRequestMarkdownTempl
     const getCommitText = lodash_1.default.template(loneCommitMarkdown);
     const childrenPullRequestMarkdowns = associatedPullRequests.map(getPRText);
     const loneCommitMarkdowns = loneCommits.map(getCommitText);
-    console.log("loneCommitMarkdowns", loneCommitMarkdowns);
     return lodash_1.default.template(markdownTemplate)({
         childrenPullRequestMarkdowns,
         loneCommitMarkdowns,
@@ -227,7 +226,9 @@ const transform = (githubResponse, config) => {
         .value();
     const loneCommits = (0, lodash_1.default)(commits)
         .map("commit")
-        .filter(commit => lodash_1.default.isEmpty(commit.associatedPullRequests.nodes))
+        .filter(commit => (0, lodash_1.default)(commit.associatedPullRequests.nodes)
+        .filter({ state: "MERGED" })
+        .isEmpty())
         .value();
     return { associatedPullRequests, loneCommits };
 };
